@@ -1,0 +1,70 @@
+type: object
+required:
+  - logging
+  - cache
+  - monitoring
+  - security
+properties:
+  logging:
+    type: object
+    required:
+      - level
+      - outputs
+    properties:
+      level:
+        type: string
+      outputs:
+        type: array
+      retention:
+        type: object
+        properties:
+          days:
+            type: number
+          maxSize:
+            type: number
+  cache:
+    type: object
+    required:
+      - redis
+    properties:
+      redis:
+        type: object
+        required:
+          - endpoints
+          - password
+        properties:
+          endpoints:
+            type: array
+          password:
+            type: string
+          maxMemory:
+            type: number
+  monitoring:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+      interval:
+        type: number
+      alerting:
+        type: object
+        properties:
+          slack:
+            type: boolean
+          email:
+            type: boolean
+  security:
+    type: object
+    required:
+      - jwt
+    properties:
+      jwt:
+        type: object
+        required:
+          - secret
+          - expiry
+        properties:
+          secret:
+            type: string
+          expiry:
+            type: number

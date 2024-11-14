@@ -1,0 +1,44 @@
+{
+  "app": {
+    "name": "MyAwesomeApp",
+    "version": "1.2.3",
+    "environment": "production",
+    "debug": false
+  },
+  "server": {
+    "ports": {
+      "http": 8080,
+      "https": 443,
+      "metrics": 9090
+    },
+    "host": "api.myapp.com",
+    "timeouts": {
+      "read": 30,
+      "write": 20
+    }
+  },
+  "database": {
+    "primary": {
+      "url": "postgresql://primary:5432/myapp",
+      "maxConnections": 100,
+      "ssl": true
+    },
+    "replicas": [
+      {
+        "url": "postgresql://replica1:5432/myapp",
+        "maxConnections": 50
+      },
+      {
+        "url": "postgresql://replica2:5432/myapp",
+        "maxConnections": 50
+      }
+    ]
+  },
+  "features": {
+    "authentication": true,
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerMinute": 100
+    }
+  }
+}

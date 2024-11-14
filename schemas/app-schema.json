@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "required": ["app", "server", "database", "features"],
+  "properties": {
+    "app": {
+      "type": "object",
+      "required": ["name", "version", "environment"],
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" },
+        "environment": { "type": "string" },
+        "debug": { "type": "boolean" }
+      }
+    },
+    "server": {
+      "type": "object",
+      "required": ["ports", "host", "timeouts"],
+      "properties": {
+        "ports": {
+          "type": "object",
+          "required": ["http", "https", "metrics"],
+          "properties": {
+            "http": { "type": "number" },
+            "https": { "type": "number" },
+            "metrics": { "type": "number" }
+          }
+        },
+        "host": { "type": "string" },
+        "timeouts": {
+          "type": "object",
+          "properties": {
+            "read": { "type": "number" },
+            "write": { "type": "number" }
+          }
+        }
+      }
+    },
+    "database": {
+      "type": "object",
+      "required": ["primary", "replicas"],
+      "properties": {
+        "primary": {
+          "type": "object",
+          "required": ["url", "maxConnections"],
+          "properties": {
+            "url": { "type": "string" },
+            "maxConnections": { "type": "number" },
+            "ssl": { "type": "boolean" }
+          }
+        },
+        "replicas": {
+          "type": "array"
+        }
+      }
+    },
+    "features": {
+      "type": "object",
+      "properties": {
+        "authentication": { "type": "boolean" },
+        "rateLimit": {
+          "type": "object",
+          "properties": {
+            "enabled": { "type": "boolean" },
+            "requestsPerMinute": { "type": "number" }
+          }
+        }
+      }
+    }
+  }
+}

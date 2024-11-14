@@ -1,0 +1,19 @@
+logging:
+  level: true
+  outputs: "console"
+  retention:
+    days: "30"
+
+cache:
+  redis:
+    endpoints: "localhost:6379"
+    maxMemory: "512MB"
+
+monitoring:
+  enabled: "yes"
+  interval: "1m"
+
+security:
+  jwt:
+    secret: 12345
+    expiry: "1h"

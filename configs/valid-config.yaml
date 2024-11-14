@@ -1,0 +1,28 @@
+logging:
+  level: "info"
+  outputs:
+    - "console"
+    - "file"
+  retention:
+    days: 30
+    maxSize: 1024
+
+cache:
+  redis:
+    endpoints:
+      - "redis-1:6379"
+      - "redis-2:6379"
+    password: "secure123"
+    maxMemory: 512
+
+monitoring:
+  enabled: true
+  interval: 60
+  alerting:
+    slack: true
+    email: false
+
+security:
+  jwt:
+    secret: "your-super-secret-key-here"
+    expiry: 3600

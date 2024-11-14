@@ -1,0 +1,28 @@
+{
+  "app": {
+    "name": 123,
+    "version": 2.0,
+    "debug": "false"
+  },
+  "server": {
+    "ports": {
+      "http": "8080",
+      "https": "443"
+    },
+    "timeouts": {
+      "read": "30s"
+    }
+  },
+  "database": {
+    "primary": {
+      "maxConnections": "100"
+    },
+    "replicas": "none"
+  },
+  "features": {
+    "rateLimit": {
+      "enabled": 1,
+      "requestsPerMinute": "100"
+    }
+  }
+}
